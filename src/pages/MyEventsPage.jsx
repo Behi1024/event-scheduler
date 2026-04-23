@@ -1,22 +1,10 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import MyEventCard from "../components/MyEventCard";
+import { events as initialEvents } from "../data/events";
 
 export default function MyEventsPage() {
-  const [events, setEvents] = useState([
-    {
-      id: 1,
-      title: "Tech Meetup",
-      date: "2026-05-10",
-      location: "Berlin",
-    },
-    {
-      id: 2,
-      title: "Design Workshop",
-      date: "2026-05-15",
-      location: "Hamburg",
-    },
-  ]);
+  const [events, setEvents] = useState(initialEvents);
 
   function handleDelete(eventId) {
     setEvents(events.filter((event) => event.id !== eventId));
@@ -57,7 +45,7 @@ export default function MyEventsPage() {
               id={event.id}
               title={event.title}
               date={event.date}
-              location={event.location}
+              location={event.city}
               onDelete={handleDelete}
             />
           ))}
