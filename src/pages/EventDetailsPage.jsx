@@ -1,9 +1,25 @@
 import { Link, useParams } from "react-router-dom";
+import { useState } from "react";
 import { events } from "../data/events";
 
 export default function EventDetailsPage() {
   const { id } = useParams();
   const event = events.find((item) => item.id === Number(id));
+  const eventId = event?.id;
+
+  const [interestedIds, setInterestedIds] = useState(() => {
+    return JSON.parse(localStorage.getItem("interestedEvents")) || [];
+  });
+
+  const isInterested = eventId ? interestedIds.includes(eventId) : false;
+
+  function handleInterested() {
+    if (!eventId || isInterested) return;
+
+    const updatedIds = [...interestedIds, eventId];
+    setInterestedIds(updatedIds);
+    localStorage.setItem("interestedEvents", JSON.stringify(updatedIds));
+  }
 
   if (!event) {
     return (
@@ -94,8 +110,15 @@ export default function EventDetailsPage() {
               </div>
             </div>
 
-            <button className="mt-6 w-full rounded-xl bg-violet-600 px-4 py-3 font-semibold text-white hover:bg-violet-700">
-              I’m Interested
+            <button
+              onClick={handleInterested}
+              className={`mt-6 w-full rounded-xl px-4 py-3 font-semibold text-white transition ${
+                isInterested
+                  ? "cursor-default bg-violet-400"
+                  : "bg-violet-600 hover:bg-violet-700"
+              }`}
+            >
+              {isInterested ? "Added to My Events ✓" : "I’m Interested"}
             </button>
           </div>
 

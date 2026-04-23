@@ -1,13 +1,23 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import MyEventCard from "../components/MyEventCard";
-import { events as initialEvents } from "../data/events";
+import { events as allEvents } from "../data/events";
+
+function getInterestedEvents() {
+  const storedIds = JSON.parse(localStorage.getItem("interestedEvents")) || [];
+  return allEvents.filter((event) => storedIds.includes(event.id));
+}
 
 export default function MyEventsPage() {
-  const [events, setEvents] = useState(initialEvents);
+  const [events, setEvents] = useState(getInterestedEvents);
 
   function handleDelete(eventId) {
-    setEvents(events.filter((event) => event.id !== eventId));
+    const storedIds =
+      JSON.parse(localStorage.getItem("interestedEvents")) || [];
+    const updatedIds = storedIds.filter((id) => id !== eventId);
+
+    localStorage.setItem("interestedEvents", JSON.stringify(updatedIds));
+    setEvents(allEvents.filter((event) => updatedIds.includes(event.id)));
   }
 
   return (
@@ -25,16 +35,16 @@ export default function MyEventsPage() {
 
       {events.length === 0 ? (
         <div className="mt-20 flex flex-col items-center justify-center text-center">
-          <p className="text-lg text-slate-500">No events yet</p>
+          <p className="text-lg text-slate-500">No interested events yet</p>
           <p className="mt-2 text-sm text-slate-400">
-            Create your first event and start organizing 🚀
+            Click “I’m Interested” on an event to see it here.
           </p>
 
           <Link
-            to="/create"
+            to="/"
             className="mt-6 rounded-lg bg-purple-600 px-5 py-2 text-white hover:bg-purple-700"
           >
-            Create Event
+            Browse Events
           </Link>
         </div>
       ) : (
