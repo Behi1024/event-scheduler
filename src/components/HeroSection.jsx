@@ -1,6 +1,8 @@
+import heroPeople from "../assets/images/hero-people.png";
+
 export default function HeroSection() {
   return (
-    <section className="grid gap-10 rounded-[32px] bg-white px-8 py-10 shadow-sm lg:grid-cols-2 lg:items-center lg:px-12 lg:py-14">
+    <section className="grid gap-10 rounded-[32px] border border-slate-200 bg-white px-8 py-10 shadow-sm lg:grid-cols-2 lg:items-center lg:px-12 lg:py-14">
       <div className="max-w-xl">
         <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-violet-500">
           Event Discovery
@@ -9,8 +11,7 @@ export default function HeroSection() {
         <h1 className="text-4xl font-bold leading-tight text-slate-900 md:text-5xl">
           Discover Events
           <br />
-          Happening{" "}
-          <span className="text-violet-600">Around You</span>
+          Happening <span className="text-violet-600">Around You</span>
         </h1>
 
         <p className="mt-5 max-w-lg text-base leading-7 text-slate-600">
@@ -39,28 +40,11 @@ export default function HeroSection() {
       </div>
 
       <div className="flex justify-center lg:justify-end">
-        <div className="relative flex h-[320px] w-full max-w-[460px] items-center justify-center overflow-hidden rounded-[32px] bg-gradient-to-br from-violet-100 via-white to-violet-50">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(124,58,237,0.18),_transparent_40%)]" />
-
-          <div className="relative flex items-end gap-4">
-            <div className="h-28 w-16 rounded-t-full bg-violet-200" />
-            <div className="h-40 w-20 rounded-t-full bg-violet-500" />
-            <div className="h-32 w-16 rounded-t-full bg-violet-300" />
-            <div className="h-44 w-20 rounded-t-full bg-violet-400" />
-          </div>
-
-          <div className="absolute left-8 top-8 rounded-2xl bg-white/80 px-4 py-3 shadow-sm backdrop-blur">
-            <p className="text-xs font-medium text-slate-500">Next Event</p>
-            <p className="mt-1 text-sm font-semibold text-slate-900">
-              Design Meetup
-            </p>
-          </div>
-
-          <div className="absolute bottom-8 right-8 rounded-2xl bg-violet-600 px-4 py-3 text-white shadow-lg">
-            <p className="text-xs text-violet-100">Join the vibe</p>
-            <p className="mt-1 text-sm font-semibold">+128 attendees</p>
-          </div>
-        </div>
+        <img
+          src={heroPeople}
+          alt="People celebrating events"
+          className="max-h-[420px] w-auto object-contain lg:max-h-[500px]"
+        />
       </div>
     </section>
   );
