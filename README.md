@@ -5,6 +5,29 @@ A modern React-based event platform built with a UI-first approach.
 This project focuses on creating a clean, structured, and scalable frontend before integrating real backend logic.
 
 ---
+## Preview
+
+### Home
+![Home Hero](./screenshots/home-hero.png)
+![Home Events](./screenshots/home-events.png)
+
+### Authentication
+![Sign In](./screenshots/sign-in.png)
+![Sign Up](./screenshots/sign-up.png)
+
+### Event Details
+![Event Details Main](./screenshots/event-details-main.png)
+![Event Details Info](./screenshots/event-details-info.png)
+
+### My Events
+![Empty State](./screenshots/my-events-empty.png)
+![With Saved Events](./screenshots/my-events-filled.png)
+
+### Create Event
+![Create Event Form Top](./screenshots/create-event-form-top.png)
+![Create Event Form Bottom](./screenshots/create-event-form-bottom.png)
+
+---
 
 ## Tech Stack
 
