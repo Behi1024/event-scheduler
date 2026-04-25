@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import placeholder from "../assets/images/event-placeholder.svg";
 
 export default function EventCard({ event }) {
   const date = new Date(event.date);
@@ -13,14 +14,13 @@ export default function EventCard({ event }) {
       to={`/events/${event.id}`}
       className="block overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md"
     >
-      {/* TODO: fix no image
-      <div className="h-48 w-full overflow-hidden bg-slate-200">
+      <div className="h-48 w-full overflow-hidden bg-violet-50">
         <img
-          src={event.image}
+          src={event.image || placeholder}
           alt={event.title}
           className="h-full w-full object-cover"
-        /> 
-      </div>*/}
+        />
+      </div>
 
       <div className="space-y-3 p-4">
         <div className="flex items-center gap-2 text-xs text-slate-500">
