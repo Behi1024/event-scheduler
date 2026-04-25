@@ -1,25 +1,25 @@
-import { useState, useEffect } from "react"
-import { getEvents } from "../services/api"
+import { useState, useEffect } from "react";
+import { getEvents } from "../services/api";
 
 export function useEvents() {
-  const [events, setEvents] = useState([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
+  const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     async function fetchEvents() {
       try {
-        const data = await getEvents()
-        setEvents(data.results)
+        const data = await getEvents();
+        setEvents(data.results);
       } catch (err) {
-        setError(err)
+        setError(err);
       } finally {
-        setLoading(false)
+        setLoading(false);
       }
     }
 
-    fetchEvents()
-  }, [])
+    fetchEvents();
+  }, []);
 
-  return { events, loading, error }
+  return { events, loading, error };
 }
