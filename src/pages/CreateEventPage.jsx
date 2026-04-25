@@ -274,22 +274,22 @@ export default function CreateEventPage() {
 
             <button
               type="button"
-              className="mt-5 rounded-xl bg-violet-600 px-5 py-3 text-sm font-semibold text-white hover:bg-violet-700"
+              className="mt-4 inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-600 shadow-sm transition-all duration-200 hover:border-slate-400 hover:bg-slate-50 hover:text-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-300"
             >
               Choose Image
             </button>
           </div>
-        </div>
-      </div>
 
-      <div className="flex justify-end">
-        <button
-          type="submit"
-          disabled={isSubmitting}
-          className="rounded-xl bg-gradient-to-r from-violet-600 to-purple-500 px-8 py-3 font-semibold text-white hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
-        >
-          {isSubmitting ? "Creating..." : "Create Event"}
-        </button>
+          <div className="mt-25 flex justify-center">
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="w-fit rounded-xl bg-gradient-to-r from-violet-600 to-purple-500 px-6 py-2.5 text-sm font-semibold text-white shadow-md transition-all duration-200 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-violet-400/60 disabled:opacity-60 disabled:cursor-not-allowed"
+            >
+              {isSubmitting ? "Creating..." : "Create Event"}
+            </button>
+          </div>
+        </div>
       </div>
     </form>
   );
