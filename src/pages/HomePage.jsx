@@ -1,8 +1,10 @@
 import HeroSection from "../components/HeroSection";
 import EventCard from "../components/EventCard";
-import { events } from "../data/events";
+import { useEvents } from "../hooks/useEvents";
 
 export default function HomePage() {
+  const { events, loading, error } = useEvents()
+
   return (
     <div className="mx-auto max-w-7xl px-6 py-6">
       <HeroSection />
@@ -15,6 +17,9 @@ export default function HomePage() {
             View all
           </button>
         </div>
+
+        {loading && <p className="text-slate-500">Loading events...</p>}
+        {error && <p className="text-red-500">Failed to load events.</p>}
 
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           {events.map((event) => (
