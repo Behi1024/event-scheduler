@@ -1,14 +1,16 @@
-import { createBrowserRouter } from 'react-router-dom'
-import MainLayout from '../layouts/MainLayout'
-import HomePage from '../pages/HomePage'
-import EventDetailsPage from '../pages/EventDetailsPage'
+import { createBrowserRouter } from "react-router-dom";
+import MainLayout from "../layouts/MainLayout";
+import HomePage from "../pages/HomePage";
+import EventDetailsPage from "../pages/EventDetailsPage";
 import SignInPage from "../pages/SignInPage";
 import SignUpPage from "../pages/SignUpPage";
 import CreateEventPage from "../pages/CreateEventPage";
 import MyEventsPage from "../pages/MyEventsPage";
+import ProtectedRoute from "./ProtectedRoute";
+
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <MainLayout />,
     children: [
       {
@@ -16,18 +18,25 @@ const router = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: 'events/:id',
+        path: "events/:id",
         element: <EventDetailsPage />,
       },
       { path: "signin", element: <SignInPage /> },
-{ path: "signup", element: <SignUpPage /> },
-{ path: "create", element: <CreateEventPage /> },
-{
+      { path: "signup", element: <SignUpPage /> },
+      {
+        path: "create",
+        element: (
+          <ProtectedRoute>
+            <CreateEventPage />
+          </ProtectedRoute>
+        ),
+      },
+      {
         path: "my-events",
         element: <MyEventsPage />,
       },
     ],
   },
-])
+]);
 
-export default router
+export default router;
