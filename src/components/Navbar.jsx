@@ -21,12 +21,16 @@ export default function Navbar() {
         <Link to="/" className="hover:text-purple-600">
           Home
         </Link>
-        <Link to="/create" className="hover:text-purple-600">
-          Create Event
-        </Link>
-        <Link to="/my-events" className="hover:text-purple-600">
-          My Events
-        </Link>
+        {token && (
+          <Link to="/create" className="hover:text-purple-600">
+            Create Event
+          </Link>
+        )}
+        {token && (
+          <Link to="/my-events" className="hover:text-purple-600">
+            My Events
+          </Link>
+        )}
       </div>
 
       {/* Auth Buttons */}
