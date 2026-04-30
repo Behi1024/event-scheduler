@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   // Token prüfen
@@ -18,15 +18,38 @@ export default function Navbar() {
 
       {/* Navigation Links */}
       <div className="flex gap-6 text-gray-700">
-        <Link to="/" className="hover:text-purple-600">
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive ? "text-purple-600 font-semibold" : "hover:text-purple-600"
+          }
+        >
           Home
-        </Link>
-        <Link to="/create" className="hover:text-purple-600">
-          Create Event
-        </Link>
-        <Link to="/my-events" className="hover:text-purple-600">
-          My Events
-        </Link>
+        </NavLink>
+        {token && (
+          <NavLink
+            to="/create"
+            className={({ isActive }) =>
+              isActive
+                ? "text-purple-600 font-semibold"
+                : "hover:text-purple-600"
+            }
+          >
+            Create Event
+          </NavLink>
+        )}
+        {token && (
+          <NavLink
+            to="/my-events"
+            className={({ isActive }) =>
+              isActive
+                ? "text-purple-600 font-semibold"
+                : "hover:text-purple-600"
+            }
+          >
+            My Events
+          </NavLink>
+        )}
       </div>
 
       {/* Auth Buttons */}
