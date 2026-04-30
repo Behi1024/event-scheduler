@@ -16,6 +16,9 @@ export default function HomePage() {
 
         {loading && <p className="text-slate-500">Loading events...</p>}
         {error && <p className="text-red-500">Failed to load events.</p>}
+        {!loading && !error && events.length === 0 && (
+          <p className="text-slate-500">No events found.</p>
+        )}
 
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           {events.map((event) => (

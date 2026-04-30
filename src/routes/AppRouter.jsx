@@ -33,7 +33,11 @@ const router = createBrowserRouter([
       },
       {
         path: "my-events",
-        element: <MyEventsPage />,
+        element: (
+          <ProtectedRoute>
+            <MyEventsPage />
+          </ProtectedRoute>
+        ),
       },
     ],
   },
