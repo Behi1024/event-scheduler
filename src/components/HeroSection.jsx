@@ -18,25 +18,6 @@ export default function HeroSection() {
           Find and join amazing events or create your own. A clean and modern
           place to explore workshops, meetups, conferences, and more.
         </p>
-
-        <div className="mt-8 flex flex-col gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-3 shadow-sm md:flex-row md:items-center">
-          <input
-            type="text"
-            placeholder="Search events..."
-            className="h-12 flex-1 rounded-xl border border-slate-200 bg-white px-4 text-sm text-slate-700 outline-none placeholder:text-slate-400 focus:border-violet-400"
-          />
-
-          <select className="h-12 rounded-xl border border-slate-200 bg-white px-4 text-sm text-slate-700 outline-none focus:border-violet-400">
-            <option>All Categories</option>
-            <option>Technology</option>
-            <option>Design</option>
-            <option>Business</option>
-          </select>
-
-          <button className="h-12 rounded-xl bg-violet-600 px-6 text-sm font-semibold text-white transition hover:bg-violet-700">
-            Search
-          </button>
-        </div>
       </div>
 
       <div className="flex justify-center lg:justify-end">

@@ -3,7 +3,7 @@ import EventCard from "../components/EventCard";
 import { useEvents } from "../hooks/useEvents";
 
 export default function HomePage() {
-  const { events, loading, error } = useEvents()
+  const { events, loading, error } = useEvents();
 
   return (
     <div className="mx-auto max-w-7xl px-6 py-6">
@@ -11,11 +11,7 @@ export default function HomePage() {
 
       <section className="mt-10">
         <div className="mb-6 flex items-center justify-between">
-          <h2 className="text-2xl font-bold text-slate-900">Upcoming Events</h2>
-
-          <button className="text-sm font-medium text-violet-600 hover:text-violet-700">
-            View all
-          </button>
+          <h2 className="text-2xl font-bold text-slate-900">Events</h2>
         </div>
 
         {loading && <p className="text-slate-500">Loading events...</p>}
