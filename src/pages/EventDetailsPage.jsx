@@ -10,6 +10,8 @@ export default function EventDetailsPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const token = localStorage.getItem("token");
+
   const [interestedIds, setInterestedIds] = useState(() => {
     return JSON.parse(localStorage.getItem("interestedEvents")) || [];
   });
@@ -128,16 +130,18 @@ export default function EventDetailsPage() {
               </div>
             </div>
 
-            <button
-              onClick={handleInterested}
-              className={`mt-6 w-full rounded-xl px-4 py-3 font-semibold text-white transition ${
-                isInterested
-                  ? "cursor-default bg-violet-400"
-                  : "bg-violet-600 hover:bg-violet-700"
-              }`}
-            >
-              {isInterested ? "Added to My Events ✓" : "I'm Interested"}
-            </button>
+            {token && (
+              <button
+                onClick={handleInterested}
+                className={`mt-6 w-full rounded-xl px-4 py-3 font-semibold text-white transition ${
+                  isInterested
+                    ? "cursor-default bg-violet-400"
+                    : "bg-violet-600 hover:bg-violet-700"
+                }`}
+              >
+                {isInterested ? "Added to My Events ✓" : "I'm Interested"}
+              </button>
+            )}
           </div>
 
           <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
